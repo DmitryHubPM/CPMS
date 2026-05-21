@@ -1,0 +1,174 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R 12 0 R] /Count 4 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Length 3419 >>
+stream
+BT /F2 18 Tf 54 738 Td (Clinical Budgeting and Project Management System) Tj ET
+BT /F1 10 Tf 54 714 Td (Prototype User Guide) Tj ET
+BT /F1 10 Tf 54 695 Td (A drill-down clinical study planning prototype where a budget line becomes an expandable) Tj ET
+BT /F1 10 Tf 54 681 Td (work unit with composition, schedule, location, evidence, payment logic, cost, resources,) Tj ET
+BT /F1 10 Tf 54 667 Td (documents, and earned value tracking.) Tj ET
+BT /F1 10 Tf 54 648 Td (Illustration only. The demo uses public protocol references and simplified assumptions.) Tj ET
+BT /F1 10 Tf 54 634 Td (Budget numbers, contract text, monitoring language, PM plan language, SOP placeholders, and) Tj ET
+BT /F1 10 Tf 54 620 Td (schedule outputs are not correct for contracting, regulatory use, quality system use, or) Tj ET
+BT /F1 10 Tf 54 606 Td (operational decision-making.) Tj ET
+BT /F2 13 Tf 54 579 Td (1. Purpose Of The System) Tj ET
+BT /F1 10 Tf 54 555 Td (The system demonstrates a planning approach for clinical research where the budget is not a) Tj ET
+BT /F1 10 Tf 54 541 Td (flat spreadsheet. Each budget line is a unit of work that can be planned at a high level) Tj ET
+BT /F1 10 Tf 54 527 Td (first, then progressively detailed as information becomes available.) Tj ET
+BT /F1 10 Tf 54 508 Td (It starts with protocol-derived units, study phases, milestones, global counts, role-based) Tj ET
+BT /F1 10 Tf 54 494 Td (labor, pass-through costs, and investigator grants.) Tj ET
+BT /F1 10 Tf 54 475 Td (It becomes a country/site schedule, resource plan, timesheet plan, evidence tracker, payment) Tj ET
+BT /F1 10 Tf 54 461 Td (tracker, change order register, and earned value dashboard.) Tj ET
+BT /F2 13 Tf 54 434 Td (2. Budgeting Process) Tj ET
+BT /F1 10 Tf 54 410 Td (1. Extract units from the protocol: visits, start-up, monitoring, safety, data, PM,) Tj ET
+BT /F1 10 Tf 54 396 Td (reporting, close-out, and follow-up activities.) Tj ET
+BT /F1 10 Tf 54 377 Td (2. Create budget units with phase, milestone, count, location assumption, dates, and cost) Tj ET
+BT /F1 10 Tf 54 363 Td (model.) Tj ET
+BT /F1 10 Tf 54 344 Td (3. Define role composition: department, role, function, planned hours per unit, hourly rate,) Tj ET
+BT /F1 10 Tf 54 330 Td (and optional employee assignment.) Tj ET
+BT /F1 10 Tf 54 311 Td (4. Split detail progressively from Global to Region to Country to Site.) Tj ET
+BT /F1 10 Tf 54 292 Td (5. Generate schedule dates and override exact planned dates when known.) Tj ET
+BT /F1 10 Tf 54 273 Td (6. Track completion, evidence, actual hours, validation, and payment status.) Tj ET
+BT /F1 10 Tf 54 254 Td (7. Recalculate budget, resources, cash flow, timesheets, evidence, EVA, and documents from) Tj ET
+BT /F1 10 Tf 54 240 Td (the same unit model.) Tj ET
+BT /F2 13 Tf 54 213 Td (3. Core Data Model) Tj ET
+BT /F1 10 Tf 54 189 Td (Budget Unit: main expandable work unit, for example Monitoring Visit or Site Start-Up) Tj ET
+BT /F1 10 Tf 54 175 Td (Package.) Tj ET
+BT /F1 10 Tf 54 156 Td (Unit Composition: role rows used to calculate labor cost and FTE.) Tj ET
+BT /F1 10 Tf 54 137 Td (Unit Schedule: generated or manually edited unit instances.) Tj ET
+BT /F1 10 Tf 54 118 Td (Completion: actual completion date, completed by, and actual hours.) Tj ET
+BT /F1 10 Tf 54 99 Td (Evidence Document: proof of completion and validation, for example Trip Report, CAPA, SAE,) Tj ET
+BT /F1 10 Tf 54 85 Td (or Other.) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 3272 >>
+stream
+BT /F1 10 Tf 54 738 Td (Payment Status: investigator payment and sponsor reimbursement tracking.) Tj ET
+BT /F1 10 Tf 54 719 Td (Commercial Source: Contract Unit, CO1, CO2, OOS1, OOS2, etc.) Tj ET
+BT /F2 13 Tf 54 692 Td (4. Dashboard And KPIs) Tj ET
+BT /F1 10 Tf 54 668 Td (The top of the app shows the project, protocol source, disclaimer, timeline, Budget Story,) Tj ET
+BT /F1 10 Tf 54 654 Td (KPI cards, and progress indicators.) Tj ET
+BT /F1 10 Tf 54 635 Td (KPI cards include Planned Budget, Labor Budget, Planned Hours, FTE Effort, Average FTE Need,) Tj ET
+BT /F1 10 Tf 54 621 Td (Pass-through, Investigator Grants, and Actual Cost.) Tj ET
+BT /F1 10 Tf 54 602 Td (Progress indicators show Scheduled, Completed, Evidence Filed, and Paid by Sponsor.) Tj ET
+BT /F2 13 Tf 54 575 Td (5. Budget Grid) Tj ET
+BT /F1 10 Tf 54 551 Td (The Budget Grid is the commercial and operational starting point. One row equals one) Tj ET
+BT /F1 10 Tf 54 537 Td (expandable work unit.) Tj ET
+BT /F1 10 Tf 54 518 Td (Columns include Unit list, Phase, Milestone, Commercial source, Location, Number of units,) Tj ET
+BT /F1 10 Tf 54 504 Td (Pass-through per unit, Grant per unit, Start, End, Status, and Actions.) Tj ET
+BT /F1 10 Tf 54 485 Td (Commercial source defaults to Contract Unit and can be changed to CO1, CO2, CO3, OOS1, OOS2,) Tj ET
+BT /F1 10 Tf 54 471 Td (or OOS3.) Tj ET
+BT /F1 10 Tf 54 452 Td (Actions include Split country, Save, Open, and Delete.) Tj ET
+BT /F2 13 Tf 54 425 Td (6. Unit Drill-Down) Tj ET
+BT /F1 10 Tf 54 401 Td (Each saved row opens as a unit card with tabs: Detail Builder, Unit Composition, Duration &) Tj ET
+BT /F1 10 Tf 54 387 Td (Schedule, Completion & Evidence, Payment Logic, and Cost Summary.) Tj ET
+BT /F1 10 Tf 54 368 Td (Detail Builder shows maturity ladders for Location, Staffing, Timing, and Actuals.) Tj ET
+BT /F1 10 Tf 54 349 Td (Unit Composition allows editing department, job role, function, employee, hours per unit,) Tj ET
+BT /F1 10 Tf 54 335 Td (hourly rate, milestone, and assumption type.) Tj ET
+BT /F1 10 Tf 54 316 Td (Duration & Schedule generates dates between start and end dates and allows exact date) Tj ET
+BT /F1 10 Tf 54 302 Td (overrides.) Tj ET
+BT /F1 10 Tf 54 283 Td (Completion & Evidence records actual completion, actual hours, evidence status, and proof) Tj ET
+BT /F1 10 Tf 54 269 Td (link placeholders.) Tj ET
+BT /F1 10 Tf 54 250 Td (Payment Logic tracks investigator payment, sponsor reimbursement, and payment trigger.) Tj ET
+BT /F1 10 Tf 54 231 Td (Cost Summary calculates planned cost, actual cost, variance, validated cost, not validated) Tj ET
+BT /F1 10 Tf 54 217 Td (cost, and open exposure.) Tj ET
+BT /F2 13 Tf 54 190 Td (7. Report Tabs) Tj ET
+BT /F1 10 Tf 54 166 Td (Plan: budget grid and expandable unit cards.) Tj ET
+BT /F1 10 Tf 54 147 Td (Budget: unit, source, phase, milestone, units, hours, FTE-months, labor, pass-through,) Tj ET
+BT /F1 10 Tf 54 133 Td (grant, and total.) Tj ET
+BT /F1 10 Tf 54 114 Td (Resources: monthly resource demand by department, role, employee, hours, and FTE.) Tj ET
+BT /F1 10 Tf 54 95 Td (Cash Flow: monthly labor, pass-through, investigator grant, and total cash flow.) Tj ET
+BT /F1 10 Tf 54 76 Td (Timesheets: generated planned timesheet rows and actual-hour comparison.) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 3206 >>
+stream
+BT /F1 10 Tf 54 738 Td (Evidence: document status and payment evidence tracker.) Tj ET
+BT /F1 10 Tf 54 719 Td (EVA: Planned Value, Earned Value, Actual Cost, SPI, CPI, and unit-level EVA.) Tj ET
+BT /F1 10 Tf 54 700 Td (Contracts & Docs: contract backbone, commercial summary, change order/OOS register, PM plan,) Tj ET
+BT /F1 10 Tf 54 686 Td (monitoring plan, and SOP/TMF placeholders.) Tj ET
+BT /F2 13 Tf 54 659 Td (8. Contract, Change Order, And OOS Logic) Tj ET
+BT /F1 10 Tf 54 635 Td (Contract Unit means baseline scope included in the original contract or work order.) Tj ET
+BT /F1 10 Tf 54 616 Td (CO1, CO2, and CO3 mean approved or planned change order scope.) Tj ET
+BT /F1 10 Tf 54 597 Td (OOS1, OOS2, and OOS3 mean out-of-scope work not yet converted to a change order.) Tj ET
+BT /F1 10 Tf 54 578 Td (This allows the same operational budget to support contract control, budget control, and) Tj ET
+BT /F1 10 Tf 54 564 Td (project reporting.) Tj ET
+BT /F2 13 Tf 54 537 Td (9. Document Constructor) Tj ET
+BT /F1 10 Tf 54 513 Td (The Contracts & Docs tab uses the live budget grid to summarize commercial scope and create) Tj ET
+BT /F1 10 Tf 54 499 Td (document backbones.) Tj ET
+BT /F1 10 Tf 54 480 Td (It includes a Study Work Order / Clinical Services Agreement outline between Muster Sponsor) Tj ET
+BT /F1 10 Tf 54 466 Td (AG and Muster CRO GmbH.) Tj ET
+BT /F1 10 Tf 54 447 Td (It also includes a Commercial Summary, Change Order / OOS Register, Project Management Plan) Tj ET
+BT /F1 10 Tf 54 433 Td (backbone, Monitoring Plan backbone, and SOP/TMF placeholder list.) Tj ET
+BT /F2 13 Tf 54 406 Td (10. Recommended Demo Workflow) Tj ET
+BT /F1 10 Tf 54 382 Td (1. Start on the Plan tab and review Budget Story and KPIs.) Tj ET
+BT /F1 10 Tf 54 363 Td (2. Change one budget row from Contract Unit to OOS1, then Save.) Tj ET
+BT /F1 10 Tf 54 344 Td (3. Use Country split to show how global units become country, site, and TBD remainder.) Tj ET
+BT /F1 10 Tf 54 325 Td (4. Open a unit card and show the Detail Builder maturity ladder.) Tj ET
+BT /F1 10 Tf 54 306 Td (5. Edit a planned date in Duration & Schedule.) Tj ET
+BT /F1 10 Tf 54 287 Td (6. Mark an item completed and change evidence from Draft to Filed.) Tj ET
+BT /F1 10 Tf 54 268 Td (7. Show that Budget, Resources, Cash Flow, Evidence, EVA, and Contracts & Docs update from) Tj ET
+BT /F1 10 Tf 54 254 Td (the same model.) Tj ET
+BT /F2 13 Tf 54 227 Td (11. Current Prototype Limits) Tj ET
+BT /F1 10 Tf 54 203 Td (No backend, database, login, audit trail, validation package, role security, or electronic) Tj ET
+BT /F1 10 Tf 54 189 Td (signature.) Tj ET
+BT /F1 10 Tf 54 170 Td (No real document storage. Document links are placeholders.) Tj ET
+BT /F1 10 Tf 54 151 Td (No real protocol parsing pipeline. The current demo uses simplified manual assumptions.) Tj ET
+BT /F1 10 Tf 54 132 Td (No real legal contract generation. Contract language is sample structure only.) Tj ET
+BT /F1 10 Tf 54 113 Td (No regulatory-ready SOPs. SOP names and sections are placeholders for product concept) Tj ET
+BT /F1 10 Tf 54 99 Td (discussion.) Tj ET
+BT /F1 10 Tf 54 80 Td (No persistent save after browser refresh unless extended with local storage or backend) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
+endobj
+11 0 obj
+<< /Length 39 >>
+stream
+BT /F1 10 Tf 54 738 Td (storage.) Tj ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 11 0 R >>
+endobj
+xref
+0 13
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000135 00000 n 
+0000000205 00000 n 
+0000000280 00000 n 
+0000003751 00000 n 
+0000003887 00000 n 
+0000007211 00000 n 
+0000007347 00000 n 
+0000010605 00000 n 
+0000010742 00000 n 
+0000010832 00000 n 
+trailer
+<< /Size 13 /Root 1 0 R >>
+startxref
+10970
+%%EOF

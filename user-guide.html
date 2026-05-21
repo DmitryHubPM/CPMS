@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clinical Budgeting and Project Management System - User Guide</title>
+  <style>
+    :root {
+      --ink: #17202a;
+      --muted: #607083;
+      --line: #d9e2ec;
+      --paper: #f7f9fc;
+      --panel: #ffffff;
+      --teal: #0f766e;
+      --coral: #d95f43;
+      --gold: #b7791f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+    main {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 44px 24px 60px;
+    }
+    header {
+      padding: 28px;
+      border-radius: 8px;
+      color: white;
+      background: linear-gradient(135deg, #0f766e, #17202a);
+    }
+    .eyebrow {
+      margin: 0 0 8px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.25rem;
+      line-height: 1.05;
+    }
+    h2 {
+      margin: 34px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--line);
+      font-size: 1.35rem;
+    }
+    h3 {
+      margin: 22px 0 8px;
+      font-size: 1.02rem;
+    }
+    p { margin: 0 0 12px; }
+    a { color: var(--teal); }
+    .lead {
+      max-width: 850px;
+      margin-top: 12px;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.08rem;
+    }
+    .notice {
+      margin: 18px 0 0;
+      padding: 13px 15px;
+      border: 1px solid #f4c66a;
+      border-radius: 8px;
+      color: #713f12;
+      background: #fff7d6;
+      font-weight: 700;
+    }
+    .card {
+      margin: 14px 0;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .pill {
+      display: inline-block;
+      margin: 3px 5px 3px 0;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #e8eef6;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+    .pill.good { color: #065f46; background: #dff7ed; }
+    .pill.warn { color: #92400e; background: #fef3c7; }
+    .pill.study { color: #7c2d12; background: #ffedd5; }
+    ol, ul { margin-top: 8px; padding-left: 24px; }
+    li { margin: 6px 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 4px;
+      background: white;
+    }
+    th, td {
+      padding: 9px;
+      border: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      color: var(--muted);
+      background: #f8fafc;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .toc a {
+      display: block;
+      margin: 6px 0;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .footer {
+      margin-top: 34px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      main { padding: 20px 14px 44px; }
+      h1 { font-size: 1.75rem; }
+    }
+    @media print {
+      body { background: white; }
+      main { max-width: none; padding: 0.45in; }
+      header, .card { break-inside: avoid; }
+      h2 { break-after: avoid; }
+      a { color: var(--ink); text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Prototype User Guide</p>
+      <h1>Clinical Budgeting and Project Management System</h1>
+      <p class="lead">A drill-down clinical study planning prototype where a budget line becomes an expandable work unit with composition, schedule, location, evidence, payment logic, cost, resources, documents, and earned value tracking.</p>
+    </header>
+
+    <section class="notice">
+      Illustration only. The demo uses public protocol references and simplified assumptions. Budget numbers, contract text, monitoring language, PM plan language, SOP placeholders, and schedule outputs are not correct for contracting, regulatory use, quality system use, or operational decision-making.
+    </section>
+
+    <section class="card toc">
+      <h2 id="contents">Contents</h2>
+      <a href="#purpose">1. Purpose Of The System</a>
+      <a href="#budgeting-process">2. Budgeting Process</a>
+      <a href="#data-model">3. Core Data Model</a>
+      <a href="#dashboard">4. Dashboard And KPIs</a>
+      <a href="#budget-grid">5. Budget Grid</a>
+      <a href="#drill-down">6. Unit Drill-Down</a>
+      <a href="#reports">7. Report Tabs</a>
+      <a href="#commercial">8. Contract, Change Order, And OOS Logic</a>
+      <a href="#documents">9. Document Constructor</a>
+      <a href="#workflow">10. Recommended Demo Workflow</a>
+      <a href="#limits">11. Current Prototype Limits</a>
+    </section>
+
+    <h2 id="purpose">1. Purpose Of The System</h2>
+    <p>The system demonstrates a planning approach for clinical research where the budget is not a flat spreadsheet. Each budget line is a unit of work that can be planned at a high level first, then progressively detailed as information becomes available.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>What It Starts With</h3>
+        <ul>
+          <li>Protocol-derived units and assumptions</li>
+          <li>Study phases and milestones</li>
+          <li>Global unit counts when countries and sites are not known</li>
+          <li>Role-based labor assumptions</li>
+          <li>Pass-through and investigator grant assumptions</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>What It Becomes</h3>
+        <ul>
+          <li>Country, site, and visit-level schedules</li>
+          <li>Resource and FTE demand</li>
+          <li>Timesheet plan and actual hours</li>
+          <li>Evidence and payment status tracking</li>
+          <li>Change order, OOS, and contract support</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 id="budgeting-process">2. Budgeting Process</h2>
+    <ol>
+      <li><strong>Extract units from the protocol.</strong> Identify visits, start-up activities, monitoring work, safety work, data work, PM work, reporting work, and close-out or follow-up activities.</li>
+      <li><strong>Create budget units.</strong> Each unit has a phase, milestone, count, location assumption, dates, and cost model.</li>
+      <li><strong>Define composition.</strong> Add departments, roles, functions, planned hours per unit, hourly rates, and optional employee assignment.</li>
+      <li><strong>Split detail progressively.</strong> Start with Global. Later split to region, country, site, and exact planned dates.</li>
+      <li><strong>Track completion and evidence.</strong> A completed unit becomes validated only when required evidence is attached and the document status is Final or Filed.</li>
+      <li><strong>Track payment logic.</strong> Units may be paid based on completion, document filing, sponsor approval, or manual approval.</li>
+      <li><strong>Recalculate reports.</strong> Cost, resource schedule, cash flow, timesheets, evidence status, and EVA update from the same data.</li>
+      <li><strong>Control commercial status.</strong> Keep work in Contract Unit, approved Change Order, or OOS category.</li>
+    </ol>
+
+    <h2 id="data-model">3. Core Data Model</h2>
+    <p>The prototype uses local browser state only. It is intentionally simple, but it mirrors a future relational model.</p>
+    <table>
+      <thead>
+        <tr><th>Object</th><th>Description</th><th>Examples</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Budget Unit</td><td>Main expandable work unit.</td><td>Monitoring Visit, Site Start-Up Package, SAE Processing</td></tr>
+        <tr><td>Unit Composition</td><td>Role rows used to calculate labor cost and FTE.</td><td>CRA II, Project Manager, CTA, Data Manager</td></tr>
+        <tr><td>Unit Schedule</td><td>Generated or manually edited unit instances.</td><td>Visit 1 in France, Visit 2 in Switzerland</td></tr>
+        <tr><td>Completion</td><td>Actual completion date, completed by, actual hours.</td><td>Completed by CRA, 22 actual hours</td></tr>
+        <tr><td>Evidence Document</td><td>Proof of completion and validation.</td><td>Trip Report, CAPA, SAE, Other</td></tr>
+        <tr><td>Payment Status</td><td>Investigator and Sponsor payment tracking.</td><td>Paid to investigator, not yet reimbursed by Sponsor</td></tr>
+        <tr><td>Commercial Source</td><td>Contract baseline, change order, or out-of-scope tag.</td><td>Contract Unit, CO1, CO2, OOS1</td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="dashboard">4. Dashboard And KPIs</h2>
+    <p>The top of the app tells the budget story and shows live KPIs. The current demo includes a LEAP2-style pneumonia protocol scenario with 738 subjects and approximately 160 centers for illustration.</p>
+    <div class="card">
+      <span class="pill good">Planned Budget</span>
+      <span class="pill good">Labor Budget</span>
+      <span class="pill good">Planned Hours</span>
+      <span class="pill good">FTE Effort</span>
+      <span class="pill good">Average FTE Need</span>
+      <span class="pill">Pass-through</span>
+      <span class="pill">Investigator Grants</span>
+      <span class="pill study">Actual Cost</span>
+    </div>
+    <p>Progress bars show scheduled, completed, evidence filed, and paid by Sponsor. These are not separate calculations. They roll up directly from unit instances.</p>
+
+    <h2 id="budget-grid">5. Budget Grid</h2>
+    <p>The Budget Grid is the commercial and operational starting point. One row equals one expandable work unit.</p>
+    <table>
+      <thead>
+        <tr><th>Field</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Unit list</td><td>Name of the budget/work unit. It can be edited.</td></tr>
+        <tr><td>Phase</td><td>Study phase such as Start-Up, Initiation, Maintenance, Follow-Up.</td></tr>
+        <tr><td>Milestone</td><td>Operational milestone linked to the unit.</td></tr>
+        <tr><td>Commercial source</td><td>Contract Unit by default, or CO1/CO2/OOS1 etc.</td></tr>
+        <tr><td>Location</td><td>Global by default, later split to region, country, or site.</td></tr>
+        <tr><td>No. units</td><td>Quantity of unit instances to schedule and cost.</td></tr>
+        <tr><td>Pass-through / unit</td><td>Non-labor vendor or operational cost per unit.</td></tr>
+        <tr><td>Grant / unit</td><td>Investigator grant per unit.</td></tr>
+        <tr><td>Start / End</td><td>Date range used to generate unit schedule.</td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="drill-down">6. Unit Drill-Down</h2>
+    <p>After saving a budget row, open it as a unit card. The card contains the operational detail.</p>
+    <div class="grid">
+      <div class="card"><h3>Detail Builder</h3><p>Shows maturity from Global to Region to Country to Site, from Department to Role to Employee, and from planned dates to actual completed units.</p></div>
+      <div class="card"><h3>Unit Composition</h3><p>Edit role rows, hours, rates, function, department, employee, and assumption type.</p></div>
+      <div class="card"><h3>Duration & Schedule</h3><p>Generate dates between start and end dates, then override exact planned dates when known.</p></div>
+      <div class="card"><h3>Completion & Evidence</h3><p>Record actual completion, actual hours, completed by, evidence type, evidence status, and proof link placeholder.</p></div>
+      <div class="card"><h3>Payment Logic</h3><p>Track investigator payment, sponsor reimbursement, and payment triggers.</p></div>
+      <div class="card"><h3>Cost Summary</h3><p>Calculate planned cost, actual cost, variance, validated cost, not validated cost, and open exposure.</p></div>
+    </div>
+
+    <h2 id="reports">7. Report Tabs</h2>
+    <table>
+      <thead>
+        <tr><th>Tab</th><th>What It Shows</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Plan</td><td>Budget grid and expandable unit cards.</td></tr>
+        <tr><td>Budget</td><td>Budget by unit, source, phase, milestone, hours, FTE-months, labor, pass-through, grant, and total.</td></tr>
+        <tr><td>Resources</td><td>Monthly resource demand by department, role, employee, hours, and FTE.</td></tr>
+        <tr><td>Cash Flow</td><td>Monthly labor, pass-through, investigator grant, and total cash flow.</td></tr>
+        <tr><td>Timesheets</td><td>Generated planned timesheet rows and actual-hour comparison.</td></tr>
+        <tr><td>Evidence</td><td>Evidence document status and payment evidence tracker.</td></tr>
+        <tr><td>EVA</td><td>Planned Value, Earned Value, Actual Cost, SPI, and CPI.</td></tr>
+        <tr><td>Contracts & Docs</td><td>Contract backbone, commercial summary, change order/OOS register, PM plan, monitoring plan, and SOP/TMF placeholders.</td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="commercial">8. Contract, Change Order, And OOS Logic</h2>
+    <p>Each budget row has a commercial source:</p>
+    <ul>
+      <li><span class="pill good">Contract Unit</span> Baseline scope included in the original contract or work order.</li>
+      <li><span class="pill study">CO1, CO2, CO3</span> Approved or planned change order scope.</li>
+      <li><span class="pill warn">OOS1, OOS2, OOS3</span> Out-of-scope work not yet converted to a change order.</li>
+    </ul>
+    <p>This allows the same operational budget to support contract control, budget control, and project reporting.</p>
+
+    <h2 id="documents">9. Document Constructor</h2>
+    <p>The Contracts & Docs tab is a prototype document constructor. It uses the live budget grid to summarize commercial scope and creates document backbones.</p>
+    <ul>
+      <li>Study Work Order / Clinical Services Agreement draft sections</li>
+      <li>Commercial summary from budget grid</li>
+      <li>Change Order / OOS register</li>
+      <li>Project Management Plan draft sections</li>
+      <li>Monitoring Plan draft sections</li>
+      <li>SOP and TMF placeholder list</li>
+    </ul>
+
+    <h2 id="workflow">10. Recommended Demo Workflow</h2>
+    <ol>
+      <li>Start on the Plan tab and review the Budget Story and KPIs.</li>
+      <li>Open the Budget Grid and change one row from Contract Unit to OOS1, then Save.</li>
+      <li>Use Country split to show how global units become countries, sites, and TBD remainder.</li>
+      <li>Open a unit card and show the Detail Builder maturity ladder.</li>
+      <li>Move to Duration & Schedule and edit a planned date.</li>
+      <li>Move to Completion & Evidence and mark an item completed, then change evidence from Draft to Filed.</li>
+      <li>Show that Budget, Resources, Cash Flow, Evidence, EVA, and Contracts & Docs update from the same underlying model.</li>
+    </ol>
+
+    <h2 id="limits">11. Current Prototype Limits</h2>
+    <ul>
+      <li>No backend, database, login, audit trail, validation package, role security, or electronic signature.</li>
+      <li>No real document storage. Document links are placeholders.</li>
+      <li>No real protocol parsing pipeline. The current demo uses simplified manual assumptions.</li>
+      <li>No real legal contract generation. Contract language is sample structure only.</li>
+      <li>No regulatory-ready SOPs. SOP names and sections are placeholders for product concept discussion.</li>
+      <li>No persistent save after browser refresh unless the code is extended with local storage or backend storage.</li>
+    </ul>
+
+    <p class="footer">Generated for the local prototype: Clinical Budgeting and Project Management System. Public protocol reference: <a href="https://dac-trials.org/wp-content/uploads/PNE-Pneumonia-2019-Alexander-LEAP2.pdf">LEAP2 protocol PDF</a>.</p>
+  </main>
+</body>
+</html>
