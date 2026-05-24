@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clinical Budgeting and Project Management System - Product Manual</title>
+  <style>
+    :root {
+      --ink: #17202a;
+      --muted: #5d6f82;
+      --line: #d9e2ec;
+      --paper: #f7f9fc;
+      --panel: #ffffff;
+      --teal: #0f766e;
+      --coral: #d95f43;
+      --gold: #b7791f;
+      --blue: #2f6fed;
+      --shadow: 0 18px 48px rgba(30, 41, 59, 0.1);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(120deg, rgba(15, 118, 110, 0.1), transparent 34%),
+        linear-gradient(250deg, rgba(217, 95, 67, 0.1), transparent 32%),
+        var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 42px 24px 64px;
+    }
+    header {
+      overflow: hidden;
+      position: relative;
+      padding: 34px;
+      border-radius: 8px;
+      color: white;
+      background: linear-gradient(135deg, #0f766e, #17202a);
+      box-shadow: var(--shadow);
+    }
+    header::after {
+      content: "PM";
+      position: absolute;
+      right: 24px;
+      bottom: -32px;
+      color: rgba(255, 255, 255, 0.07);
+      font-size: 9rem;
+      font-weight: 900;
+    }
+    .eyebrow {
+      margin: 0 0 8px;
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+    .lead {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+      margin: 16px 0 0;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.08rem;
+    }
+    nav {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 18px 0;
+    }
+    nav a {
+      display: block;
+      min-height: 42px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      font-weight: 800;
+    }
+    h2 {
+      margin: 38px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--line);
+      font-size: 1.42rem;
+    }
+    h3 {
+      margin: 20px 0 8px;
+      font-size: 1.05rem;
+    }
+    p { margin: 0 0 12px; }
+    .notice {
+      margin: 18px 0 0;
+      padding: 14px 16px;
+      border: 1px solid #f4c66a;
+      border-radius: 8px;
+      color: #713f12;
+      background: #fff7d6;
+      font-weight: 720;
+    }
+    .card {
+      margin: 14px 0;
+      padding: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: var(--shadow);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .quote {
+      border-left: 5px solid var(--teal);
+      color: #0f3f3a;
+      background: #e8f7f4;
+      font-size: 1.05rem;
+      font-weight: 820;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      margin: 3px 5px 3px 0;
+      padding: 4px 9px;
+      border-radius: 999px;
+      color: #0f172a;
+      background: #e8eef6;
+      font-size: 0.78rem;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+    .pill.good { color: #065f46; background: #dff7ed; }
+    .pill.warn { color: #92400e; background: #fef3c7; }
+    .pill.study { color: #7c2d12; background: #ffedd5; }
+    ol, ul { margin-top: 8px; padding-left: 24px; }
+    li { margin: 6px 0; }
+    pre {
+      overflow-x: auto;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #101827;
+      color: #edf7ff;
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      background: white;
+    }
+    th, td {
+      padding: 9px;
+      border: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      color: var(--muted);
+      background: #f8fafc;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .footer {
+      margin-top: 40px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    @media (max-width: 820px) {
+      main { padding: 20px 14px 44px; }
+      nav, .grid { grid-template-columns: 1fr; }
+      header { padding: 24px; }
+    }
+    @media print {
+      body { background: white; }
+      main { max-width: none; padding: 0.45in; }
+      header, .card { box-shadow: none; break-inside: avoid; }
+      nav { display: none; }
+      h2 { break-after: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Product And User Manual</p>
+      <h1>Clinical Budgeting and Project Management System</h1>
+      <p class="lead">A protocol-driven platform concept that turns clinical study budgets into executable work units with schedule, location, resources, evidence, billing, contracts, and performance metrics.</p>
+    </header>
+
+    <section class="notice">
+      This document describes a prototype concept. The current application, demo data, protocol-derived assumptions, calculations, document text, monitoring plan text, contract language, SOP placeholders, and workflows are for illustration only. They are not validated, regulatory-ready, legal advice, or suitable for contracting, clinical operations, quality decisions, or financial reporting without full professional review, controls, and validation.
+    </section>
+
+    <nav>
+      <a href="#what">What The System Is</a>
+      <a href="#why">Why It Exists</a>
+      <a href="#budgeting">Clinical Budgeting Workflow</a>
+      <a href="#setup">Study Setup Workflow</a>
+      <a href="#units">Planning Budget Units</a>
+      <a href="#locations">Country And Site Split</a>
+      <a href="#resources">Resource Planning</a>
+      <a href="#actuals">Actuals And Evidence</a>
+      <a href="#billing">Billing And Payment</a>
+      <a href="#eva">EVA And Performance</a>
+      <a href="#commercial">Contract, Change Order, And OOS</a>
+      <a href="#demo">End-To-End Demo Scenario</a>
+      <a href="#roadmap">Future Development Roadmap</a>
+      <a href="#references">Prototype Links And References</a>
+    </nav>
+
+    <section id="what">
+      <h2>1. What The System Is</h2>
+      <p>The Clinical Budgeting and Project Management System is a protocol-driven planning and execution platform for clinical studies.</p>
+      <p>It starts where clinical trial planning usually starts: with a protocol, a study design, expected subjects, sites, visits, procedures, monitoring assumptions, and operational milestones. Instead of turning those assumptions into a static spreadsheet, the system converts them into structured work units that can be budgeted, scheduled, staffed, completed, evidenced, billed, and monitored.</p>
+      <div class="card quote">A clinical trial budget should not be a flat spreadsheet. It should be an operational model of the study.</div>
+      <div class="grid">
+        <div class="card">
+          <h3>Primary Objects</h3>
+          <p><span class="pill good">Study</span><span class="pill good">Budget Unit</span><span class="pill good">Sub-unit</span><span class="pill good">Workflow Step</span><span class="pill good">Evidence</span><span class="pill good">Payment Trigger</span></p>
+        </div>
+        <div class="card">
+          <h3>Product Scope</h3>
+          <p>Clinical budgeting, project management, resource planning, evidence tracking, billing support, contract control, and performance analytics.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <h2>2. Why It Exists</h2>
+      <p>Clinical studies are usually planned and managed across disconnected tools: spreadsheets, CTMS, EDC, IRT, eTMF, safety systems, payment trackers, project plans, email, and dashboards. This creates repeated setup and constant reconciliation.</p>
+      <ul>
+        <li>Budgets are hard to connect to actual work.</li>
+        <li>Actual hours are hard to compare with planned assumptions.</li>
+        <li>Evidence is chased by email.</li>
+        <li>Site payment triggers are unclear.</li>
+        <li>Completed work may not be billable because documents are missing.</li>
+        <li>Change orders are discovered late.</li>
+        <li>Resource needs are not visible early enough.</li>
+      </ul>
+      <div class="card quote">One protocol setup should drive budget, schedule, work, evidence, payment, resource planning, and performance metrics.</div>
+    </section>
+
+    <section id="budgeting">
+      <h2>3. Clinical Budgeting Workflow</h2>
+      <p>The budgeting workflow begins with protocol interpretation. The user identifies activities that drive cost: site start-up, investigator meetings, SIVs, subject visits, monitoring, remote review, CRF review, query management, SAE processing, deviation review, CAPA, project management, data management, close-out, and reporting.</p>
+      <p>Each activity becomes a budget unit with a phase, milestone, unit count, commercial source, date range, role composition, pass-through cost, and investigator grant amount.</p>
+      <table>
+        <thead><tr><th>Calculation</th><th>Formula</th></tr></thead>
+        <tbody>
+          <tr><td>Labor per unit</td><td>sum(hours per unit x hourly rate)</td></tr>
+          <tr><td>Total labor</td><td>labor per unit x number of units</td></tr>
+          <tr><td>Total planned budget</td><td>(labor per unit + pass-through per unit + grant per unit) x number of units</td></tr>
+          <tr><td>Planned hours</td><td>sum(hours per unit) x number of units</td></tr>
+          <tr><td>FTE months</td><td>planned hours / 160</td></tr>
+          <tr><td>FTE years</td><td>planned hours / 1920</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="setup">
+      <h2>4. Study Setup Workflow</h2>
+      <p>A new study begins with a clean parent record. All budget units, country splits, site splits, schedules, composition rows, sub-units, evidence, payments, timesheets, and reports must belong to the active study.</p>
+      <pre>Study
+  Budget Unit
+    Composition
+    Location Allocation
+    Schedule Instance
+    Sub-unit
+      Workflow Step
+      Evidence Link
+      Payment Impact</pre>
+      <p>This structure allows multiple studies, scenarios, and eventually portfolio-level analytics.</p>
+    </section>
+
+    <section id="units">
+      <h2>5. Planning Budget Units</h2>
+      <p>Budget units can start simple and become detailed later.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Early Planning</h3>
+          <pre>Monitoring Visit
+10 units
+Global
+8 CRA hours per unit
+1 PM hour per unit
+900 pass-through per unit</pre>
+        </div>
+        <div class="card">
+          <h3>Detailed Execution</h3>
+          <pre>France: 3
+Switzerland: 3
+Italy: 4
+Exact planned dates
+Assigned CRA and PM
+Trip report evidence
+Payment trigger
+Actual hours</pre>
+        </div>
+      </div>
+      <p>This supports the real planning process, where all details are not known at study start.</p>
+    </section>
+
+    <section id="locations">
+      <h2>6. Country And Site Split</h2>
+      <p>The system supports progressive detail from global assumptions to countries and sites.</p>
+      <pre>Global total: 10
+France: 3
+Switzerland: 3
+Italy: 4
+Country total: 10
+Status: matched</pre>
+      <p>If detail is incomplete, the system preserves the unknown remainder as TBD Country or TBD Site. This keeps the budget reconciled while allowing the study to mature.</p>
+    </section>
+
+    <section id="resources">
+      <h2>7. Resource Planning</h2>
+      <p>Resource planning is generated from unit composition and schedules. If one monitoring visit requires 8 CRA hours and 1 PM hour, then 10 visits require 90 planned hours.</p>
+      <p>The resource schedule should show month, department, role, employee, planned hours, actual hours, FTE, study, country, and site where available.</p>
+      <p>This helps answer how many people are needed, when they are needed, which roles are overloaded, and how protocol or timeline changes affect staffing.</p>
+    </section>
+
+    <section id="actuals">
+      <h2>8. Actuals And Evidence</h2>
+      <p>The system tracks actual execution, not only plan. For each scheduled unit or sub-unit, the user records completion, actual date, completed by, actual hours, evidence type, evidence status, proof link, and validation status.</p>
+      <p>Evidence may be a TMF document, non-TMF document, EDC reference, IRT reference, CTMS record, SharePoint link, invoice reference, or payment record.</p>
+      <div class="card quote">A completed unit is validated only when required evidence exists and the evidence status is Final or Filed.</div>
+    </section>
+
+    <section id="billing">
+      <h2>9. Billing And Payment</h2>
+      <p>The system connects operations and finance. For each unit or sub-unit, it can track billability, payment trigger, investigator payment status, CRO billing status, sponsor reimbursement, pass-through support, and OOS or change order impact.</p>
+      <p>Payment triggers include completion only, completion plus document filed, completion plus sponsor approval, and manual approval.</p>
+      <p>Warnings should appear when evidence is missing, documents are only Draft, actual hours exceed plan, or investigator payment has been made before sponsor reimbursement.</p>
+    </section>
+
+    <section id="eva">
+      <h2>10. EVA And Performance</h2>
+      <p>Earned Value Analysis compares plan, completion, and actual cost.</p>
+      <table>
+        <thead><tr><th>Metric</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td>Planned Value</td><td>Budgeted value of work planned by the data date</td></tr>
+          <tr><td>Earned Value</td><td>Budgeted value of validated work completed</td></tr>
+          <tr><td>Actual Cost</td><td>Actual cost recorded for completed work</td></tr>
+          <tr><td>SPI</td><td>Earned Value / Planned Value</td></tr>
+          <tr><td>CPI</td><td>Earned Value / Actual Cost</td></tr>
+        </tbody>
+      </table>
+      <p>This is especially useful because a clinical task may be operationally completed but not yet validated, billable, or reimbursed.</p>
+    </section>
+
+    <section id="commercial">
+      <h2>11. Contract, Change Order, And OOS</h2>
+      <p>Every budget unit should have a commercial source.</p>
+      <p><span class="pill good">Contract Unit</span><span class="pill study">CO1</span><span class="pill study">CO2</span><span class="pill study">CO3</span><span class="pill warn">OOS1</span><span class="pill warn">OOS2</span><span class="pill warn">OOS3</span></p>
+      <p>Contract Unit means baseline contracted scope. CO means approved or planned change order scope. OOS means out-of-scope work not yet converted to a change order.</p>
+      <p>The contract module should support a work order backbone, commercial budget summary, change order register, OOS register, PM plan, monitoring plan, and SOP/TMF placeholders.</p>
+    </section>
+
+    <section id="demo">
+      <h2>12. End-To-End Demo Scenario</h2>
+      <ol>
+        <li>Create a new study called My Test Study with Phase 3, 100 subjects, 10 sites, and 2026 dates.</li>
+        <li>Add a Monitoring Visit unit with 10 visits, pass-through 900 per unit, and no investigator grant.</li>
+        <li>Add CRA II at 8 hours x 100/hour and Project Manager at 1 hour x 150/hour.</li>
+        <li>Confirm planned budget equals 18,500, labor equals 9,500, planned hours equal 90, and FTE months equal 0.56.</li>
+        <li>Split countries into France 3, Switzerland 3, and Italy 4.</li>
+        <li>Assign CRA II to Maya Chen and Project Manager to Jonas Keller.</li>
+        <li>Generate schedule, then override several exact planned dates.</li>
+        <li>Mark two visits completed and update actual hours.</li>
+        <li>File evidence for one visit and leave the second visit as Draft to show validation warnings.</li>
+        <li>Update payment status and show sponsor reimbursement warning.</li>
+        <li>Review Budget, Resources, Cash Flow, Timesheets, Evidence, EVA, and Contracts & Docs.</li>
+      </ol>
+    </section>
+
+    <section id="roadmap">
+      <h2>13. Future Development Roadmap</h2>
+      <div class="grid">
+        <div class="card"><h3>Phase 1: Working Demonstrator</h3><p>Study creation, budget units, country/site split, composition, cost calculations, resource schedule, evidence, payment, EVA, and document backbones.</p></div>
+        <div class="card"><h3>Phase 2: Persistent Multi-Study Application</h3><p>Database persistence, user-created studies, scenarios, import/export, validation, and help system.</p></div>
+        <div class="card"><h3>Phase 3: Workflow And Evidence Layer</h3><p>Sub-units, workflow steps, owners, due dates, TMF/non-TMF evidence, status approvals, and escalation rules.</p></div>
+        <div class="card"><h3>Phase 4: Protocol Schedule Engine</h3><p>Visits, procedures, labs, drug administration, CRF pages, SDV/SDR workload, safety review, deviations, and CAPA triggers.</p></div>
+        <div class="card"><h3>Phase 5: Integrations</h3><p>EDC, IRT, CTMS, eTMF, safety database, finance, HR/resource planning, and document management.</p></div>
+        <div class="card"><h3>Phase 6: Regulated Enterprise Platform</h3><p>Authentication, role-based access, audit trail, data integrity, e-signature, validation package, SOP alignment, security, and inspection readiness.</p></div>
+      </div>
+    </section>
+
+    <section id="references">
+      <h2>14. Prototype Links And References</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Prototype Implementations</h3>
+          <ol>
+            <li>Codex prototype: <a href="https://dmitryhubpm.github.io/CPMS/">https://dmitryhubpm.github.io/CPMS/</a></li>
+            <li>Base44 prototype: <a href="https://clinico-plan-pro.base44.app/">https://clinico-plan-pro.base44.app/</a></li>
+          </ol>
+        </div>
+        <div class="card">
+          <h3>Public Protocol Reference</h3>
+          <p>The following publicly available protocol document is referenced solely for educational and illustrative prototype purposes. No affiliation, endorsement, validation, or operational use is implied.</p>
+          <p>LEAP2 Pneumonia Protocol: <a href="https://dac-trials.org/wp-content/uploads/PNE-Pneumonia-2019-Alexander-LEAP2.pdf">https://dac-trials.org/wp-content/uploads/PNE-Pneumonia-2019-Alexander-LEAP2.pdf</a></p>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Related Publications</h3>
+        <ol>
+          <li>Exploring AI-H Budgeting Framework for Clinical Trial Financial Feasibility: A Conceptual Analysis<br><a href="https://doi.org/10.5281/zenodo.15651378">https://doi.org/10.5281/zenodo.15651378</a></li>
+          <li>Clinical Project Management Systems (CPMS): A Project-Centric Reframing of Trial Operations<br><a href="https://doi.org/10.5281/zenodo.17924337">https://doi.org/10.5281/zenodo.17924337</a></li>
+          <li>Some Aspects of Digitalization and Digital Transformation in Clinical Research: Bridging TMF Completeness, Work Delivery, and Financial Recognition for Data Quality, Audit Readiness, and Financial Integrity<br><a href="https://doi.org/10.5281/zenodo.16418598">https://doi.org/10.5281/zenodo.16418598</a></li>
+        </ol>
+        <p>These publications provide conceptual background for the prototype's approach to protocol-driven budgeting, project control, evidence tracking, and financial recognition.</p>
+      </div>
+    </section>
+
+    <section class="card quote">
+      Product Summary: Plan once. Execute from the same model. Track actuals, evidence, payments, and performance without rebuilding the study in separate systems.
+    </section>
+
+    <p class="footer">Prepared for the Clinical Budgeting and Project Management System prototype.</p>
+  </main>
+</body>
+</html>
